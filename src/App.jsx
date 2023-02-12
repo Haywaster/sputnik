@@ -6,7 +6,7 @@ import PhotoPage from './pages/PhotoPage';
 
 const App = () => {
   return (
-    <div className='h-[100vh] py-10 px-40 bg-gray-100'>
+    <div className='h-[100vh] py-10 px-40 bg-gray-100 font-bodyFont'>
       <Header />
       <section className='flex justify-center items-center p-10 bg-green-400 min-h-[80vh] rounded-lg'>
         <Routes>

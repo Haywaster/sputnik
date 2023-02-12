@@ -4,6 +4,7 @@ import axios from 'axios';
 export const useWeatherInfo = () => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [stich, setStich] = useState(false);
 
   const _apiBase = 'https://api.openweathermap.org/data/2.5/';
   const _apiKey = 'ab25616ed5d9d9a590d17c205029e099';
@@ -23,8 +24,8 @@ export const useWeatherInfo = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [stich]);
 
   const { name, weather, sys, main } = items;
-  return { name, weather, sys, main, isLoading, dataAndTime };
+  return { name, weather, sys, main, isLoading, dataAndTime, setStich };
 };

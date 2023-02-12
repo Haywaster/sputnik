@@ -2,7 +2,10 @@
 module.exports = {
   content: ['./**/*.jsx'],
   theme: {
-    extend: {}
+    extend: {},
+    fontFamily: {
+      bodyFont: ['Ubuntu', 'sans-serif']
+    }
   },
   plugins: []
 };

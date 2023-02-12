@@ -5,36 +5,33 @@ import { useWeatherInfo } from '../hooks/useWeatherInfo';
 
 import Loading from '../components/Loading';
 import WeatherInfo from '../components/WeatherInfo';
+import NASAInfo from '../components/NASAInfo';
 
 const WeatherPage = () => {
-  const { name, weather, sys, main, isLoading, dataAndTime } = useWeatherInfo();
+  const { name, weather, sys, main, isLoading, dataAndTime, setStich } = useWeatherInfo();
   const { items, isLoadingNASA } = useNASAInfo();
 
-  console.log(items);
+  const onUpdateData = () => {
+    setStich(prev => !prev);
+  };
 
   return (
     <>
-      {isLoading ? (
+      {isLoading && isLoadingNASA ? (
         <Loading />
       ) : (
-        <WeatherInfo
-          name={name}
-          country={sys.country}
-          time={dataAndTime.toLocaleString()}
-          image={`https://openweathermap.org/img/wn/${weather.map(el => el.icon)}@2x.png`}
-          temp={(main.temp - 273.15).toFixed(1) + '°C'}
-          status={weather.map(el => el.main)}
-        />
-      )}
-      {isLoadingNASA ? (
-        <Loading />
-      ) : (
-        <div className='text-center w-[100%]'>
-          <h2 className='font-bold'>Изображение дня</h2>
-          <p>{items.title}</p>
-          <img className='w-[40%] mx-auto' src={items.url} alt={items.title} />
-          <p>{items.explanation}</p>
-        </div>
+        <>
+          <WeatherInfo
+            name={name}
+            country={sys.country}
+            time={dataAndTime.toLocaleString()}
+            image={`https://openweathermap.org/img/wn/${weather.map(el => el.icon)}@2x.png`}
+            temp={(main.temp - 273.15).toFixed(0) + '°C'}
+            status={weather.map(el => el.main)}
+            onUpdateData={onUpdateData}
+          />
+          <NASAInfo items={items} />
+        </>
       )}
     </>
   );
