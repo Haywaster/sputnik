@@ -8,7 +8,7 @@ const App = () => {
   return (
     <div className='h-[100vh] py-10 px-40 bg-gray-100 font-bodyFont'>
       <Header />
-      <section className='flex justify-center items-center p-10 bg-green-400 min-h-[80vh] rounded-lg'>
+      <section className='flex justify-evenly items-center p-10 bg-blue-400 min-h-[80vh] rounded-lg'>
         <Routes>
           <Route path='/' element={<WeatherPage />} />
           <Route path='/photo' element={<PhotoPage />} />

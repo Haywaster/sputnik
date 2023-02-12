@@ -2,7 +2,7 @@ import React from 'react';
 
 const WeatherInfo = ({ name, country, temp, time, image, status, onUpdateData }) => {
   return (
-    <div className='w-[50%] flex justify-center flex-col'>
+    <div className='w-[30%] flex justify-center flex-col'>
       <div className='border-4 rounded-lg p-6'>
         <div className='text-center'>
           <div className='font-bold text-2xl'>

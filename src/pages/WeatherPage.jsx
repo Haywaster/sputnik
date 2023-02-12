@@ -3,7 +3,7 @@ import React from 'react';
 import { useNASAInfo } from '../hooks/useNASAInfo';
 import { useWeatherInfo } from '../hooks/useWeatherInfo';
 
-import Loading from '../components/Loading';
+import Spinner from '../components/Spinner';
 import WeatherInfo from '../components/WeatherInfo';
 import NASAInfo from '../components/NASAInfo';
 
@@ -17,8 +17,8 @@ const WeatherPage = () => {
 
   return (
     <>
-      {isLoading && isLoadingNASA ? (
-        <Loading />
+      {isLoading || isLoadingNASA ? (
+        <Spinner />
       ) : (
         <>
           <WeatherInfo
