@@ -2,7 +2,7 @@ import React from 'react';
 
 const NASAInfo = ({ items }) => {
   return (
-    <div className='w-[50%]'>
+    <div className='w-1/2'>
       <div
         style={{ background: `url(${items.url}) center center/cover` }}
         className='h-[500px] flex flex-col justify-between text-center p-10 rounded-2xl'>

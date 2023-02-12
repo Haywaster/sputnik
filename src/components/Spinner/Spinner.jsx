@@ -3,23 +3,23 @@ import './Spinner.css';
 
 const Spinner = () => {
   return (
-    <>
+    <div className='relative w-1/3'>
       <div id='frame_circle'>
-        <div class='circle'></div>
-        <div class='innerCircle'></div>
+        <div className='circle'></div>
+        <div className='innerCircle'></div>
       </div>
       <div id='frame'>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
-        <div class='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
+        <div className='bar'></div>
       </div>
-    </>
+    </div>
   );
 };
 

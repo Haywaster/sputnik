@@ -4,6 +4,7 @@ import { useNASAInfo } from '../hooks/useNASAInfo';
 import { useWeatherInfo } from '../hooks/useWeatherInfo';
 
 import Spinner from '../components/Spinner';
+import SpinnerNASA from '../components/SpinnerNASA';
 import WeatherInfo from '../components/WeatherInfo';
 import NASAInfo from '../components/NASAInfo';
 
@@ -17,22 +18,20 @@ const WeatherPage = () => {
 
   return (
     <>
-      {isLoading || isLoadingNASA ? (
+      {isLoading ? (
         <Spinner />
       ) : (
-        <>
-          <WeatherInfo
-            name={name}
-            country={sys.country}
-            time={dataAndTime.toLocaleString()}
-            image={`https://openweathermap.org/img/wn/${weather.map(el => el.icon)}@2x.png`}
-            temp={(main.temp - 273.15).toFixed(0) + '°C'}
-            status={weather.map(el => el.main)}
-            onUpdateData={onUpdateData}
-          />
-          <NASAInfo items={items} />
-        </>
+        <WeatherInfo
+          name={name}
+          country={sys.country}
+          time={dataAndTime.toLocaleString()}
+          image={`https://openweathermap.org/img/wn/${weather.map(el => el.icon)}@2x.png`}
+          temp={(main.temp - 273.15).toFixed(0) + '°C'}
+          status={weather.map(el => el.main)}
+          onUpdateData={onUpdateData}
+        />
       )}
+      {isLoadingNASA ? <SpinnerNASA /> : <NASAInfo items={items} />}
     </>
   );
 };
