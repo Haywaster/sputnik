@@ -3,7 +3,7 @@ import './Spinner.css';
 
 const Spinner = () => {
   return (
-    <div className='relative w-1/3'>
+    <div className='relative w-1/3 h-2/3'>
       <div id='frame_circle'>
         <div className='circle'></div>
         <div className='innerCircle'></div>

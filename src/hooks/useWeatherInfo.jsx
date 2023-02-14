@@ -13,7 +13,22 @@ export const useWeatherInfo = () => {
     lon: 84.9744
   };
   const dataAndTime = new Date();
-  const hours = new Date().getHours();
+  const hour = dataAndTime.getHours();
+
+  function getTimesOfDay(hour) {
+    let timesOfDay = '';
+    for (let i = 0; i <= 24; i++) {
+      if (hour === i) {
+        if (i >= 0 && i < 6) timesOfDay = 'night';
+        if (i >= 6 && i < 12) timesOfDay = 'morning';
+        if (i >= 12 && i < 17) timesOfDay = 'day';
+        if (i >= 17 && i < 24) timesOfDay = 'evening';
+      }
+    }
+    return timesOfDay;
+  }
+
+  const timesOfDay = getTimesOfDay(hour);
 
   async function fetchData() {
     setIsLoading(true);
@@ -29,5 +44,5 @@ export const useWeatherInfo = () => {
   }, [stich]);
 
   const { name, weather, sys, main } = items;
-  return { name, weather, sys, main, isLoading, dataAndTime, setStich, hours };
+  return { name, weather, sys, main, isLoading, dataAndTime, setStich, timesOfDay };
 };

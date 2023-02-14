@@ -3,7 +3,7 @@ import ContentLoader from 'react-content-loader';
 
 const SpinnerNASA = () => (
   <ContentLoader
-    className='w-1/2'
+    className='w-1/2 flex justify-center items-center h-4/5'
     speed={0.8}
     width={540}
     height={500}
