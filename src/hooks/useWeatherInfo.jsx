@@ -13,6 +13,7 @@ export const useWeatherInfo = () => {
     lon: 84.9744
   };
   const dataAndTime = new Date();
+  const hours = new Date().getHours();
 
   async function fetchData() {
     setIsLoading(true);
@@ -28,5 +29,5 @@ export const useWeatherInfo = () => {
   }, [stich]);
 
   const { name, weather, sys, main } = items;
-  return { name, weather, sys, main, isLoading, dataAndTime, setStich };
+  return { name, weather, sys, main, isLoading, dataAndTime, setStich, hours };
 };

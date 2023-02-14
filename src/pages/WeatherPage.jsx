@@ -9,7 +9,7 @@ import WeatherInfo from '../components/WeatherInfo';
 import NASAInfo from '../components/NASAInfo';
 
 const WeatherPage = () => {
-  const { name, weather, sys, main, isLoading, dataAndTime, setStich } = useWeatherInfo();
+  const { name, weather, sys, main, isLoading, dataAndTime, setStich, hours } = useWeatherInfo();
   const { items, isLoadingNASA } = useNASAInfo();
 
   const onUpdateData = () => {

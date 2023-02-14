@@ -1,10 +1,9 @@
 #background-wrap {
-  padding-top: 50px;
-  position: fixed;
+  position: absolute;
+  width: -webkit-fill-available;
+  height: 100%;
   z-index: -1;
   overflow: hidden;
-  width: -webkit-fill-available;
-  margin: 40px 160px;
 }
 
 /* KEYFRAMES */

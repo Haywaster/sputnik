@@ -7,8 +7,8 @@ const Header = () => {
   let ways = ['', 'photo'];
 
   return (
-    <header className='flex justify-between px-5 h-9 bg-yellow-200 rounded mb-3'>
-      <h1 className='left-0 font-bold text-[20px] cursor-default'>☀️ Weather&Gallery 🖼️</h1>
+    <header className='flex justify-between items-center h-[9%] px-[1.5vw] bg-yellow-200 rounded mb-3'>
+      <h1 className='left-0 font-bold text-[1.5vw] cursor-default'>☀️ Weather&Gallery 🖼️</h1>
       <div className='flex items-center'>
         {pages.map((page, index) => (
           <Link
@@ -17,11 +17,10 @@ const Header = () => {
                 ? 'bg-gray-400 rounded bg-opacity-20 ease-in-out duration-500'
                 : ''
             }
+            onClick={() => setActiveIndex(index)}
             key={index}
             to={ways[index]}>
-            <div onClick={() => setActiveIndex(index)} className='mx-5 font-bold text-lg'>
-              {page}
-            </div>
+            <div className='mx-5 font-bold text-[1.5vw]'>{page}</div>
           </Link>
         ))}
       </div>
