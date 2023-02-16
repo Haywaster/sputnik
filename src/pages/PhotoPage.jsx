@@ -1,16 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import SpinnerNASA from '../components/SpinnerNASA';
 import { usePhotoInfo } from '../hooks/usePhotoInfo';
 
 const PhotoPage = () => {
   const { random } = usePhotoInfo();
-
-  useEffect(() => {
-    if (random) {
-      console.log(random.urls.small);
-    }
-  }, [random]);
 
   return (
     <>

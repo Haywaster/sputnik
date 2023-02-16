@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import axios, { AxiosError } from 'axios';
 
+const _apiBase = 'https://api.unsplash.com';
+const _apiRandom = '/photos/random';
+const _apiKey = 'A4wVqhvmcAQOV6wcdpUw6LfPDr-PaMXZ4MRliWbN8C4';
+
 export const usePhotoInfo = () => {
   const [random, setRandom] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
-
-  const _apiBase = 'https://api.unsplash.com';
-  const _apiRandom = '/photos/random';
-  const _apiKey = 'A4wVqhvmcAQOV6wcdpUw6LfPDr-PaMXZ4MRliWbN8C4';
 
   async function fetchData() {
     try {

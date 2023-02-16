@@ -7,8 +7,6 @@ const coord = {
   lat: 56.4977,
   lon: 84.9744
 };
-export const dataAndTime = new Date();
-const hour = dataAndTime.getHours();
 
 function getTimesOfDay(hour) {
   let timesOfDay = '';
@@ -22,6 +20,9 @@ function getTimesOfDay(hour) {
   }
   return timesOfDay;
 }
+
+export const dataAndTime = new Date();
+const hour = dataAndTime.getHours();
 
 export const timesOfDay = getTimesOfDay(hour);
 

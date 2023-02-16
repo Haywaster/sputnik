@@ -2,33 +2,33 @@ import React from 'react';
 
 import { timesOfDay } from '../hooks/useWeatherInfo';
 
+let bgColor = '';
+let textColor = '';
+
+switch (timesOfDay) {
+  case 'morning':
+    textColor = 'text-black';
+    bgColor = 'bg-blue-300';
+    break;
+  case 'day':
+    textColor = 'text-black';
+    bgColor = 'bg-blue-400';
+    break;
+  case 'evening':
+    textColor = 'text-gray-300';
+    bgColor = 'bg-blue-500';
+    break;
+  case 'night':
+    textColor = 'text-gray-300';
+    bgColor = 'bg-gray-700';
+    break;
+  default:
+    textColor = 'text-black';
+    bgColor = 'bg-blue-300';
+    break;
+}
+
 const WeatherInfo = ({ name, country, temp, time, image, status, onUpdateData }) => {
-  let bgColor = '';
-  let textColor = '';
-
-  switch (timesOfDay) {
-    case 'morning':
-      textColor = 'text-black';
-      bgColor = 'bg-blue-300';
-      break;
-    case 'day':
-      textColor = 'text-black';
-      bgColor = 'bg-blue-400';
-      break;
-    case 'evening':
-      textColor = 'text-gray-300';
-      bgColor = 'bg-blue-500';
-      break;
-    case 'night':
-      textColor = 'text-gray-300';
-      bgColor = 'bg-gray-700';
-      break;
-    default:
-      textColor = 'text-black';
-      bgColor = 'bg-blue-300';
-      break;
-  }
-
   return (
     <div className={`${textColor} w-1/3 flex flex-col h-2/3`}>
       <div

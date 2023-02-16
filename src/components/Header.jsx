@@ -1,38 +1,41 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { timesOfDay } from '../hooks/useWeatherInfo';
 
+let bgColor = '';
+let textColor = '';
+
+switch (timesOfDay) {
+  case 'morning':
+    textColor = 'text-black';
+    bgColor = 'bg-yellow-200';
+    break;
+  case 'day':
+    textColor = 'text-black';
+    bgColor = 'bg-yellow-300';
+    break;
+  case 'evening':
+    textColor = 'text-gray-300';
+    bgColor = 'bg-blue-900';
+    break;
+  case 'night':
+    textColor = 'text-gray-300';
+    bgColor = 'bg-gray-800';
+    break;
+  default:
+    textColor = 'text-black';
+    bgColor = 'bg-yellow-200';
+    break;
+}
+
+let pages = ['Погода', 'Фотогалерея'];
+let ways = ['/', '/photo'];
+
 const Header = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  let pages = ['Погода', 'Фотогалерея'];
-  let ways = ['', 'photo'];
-  let bgColor = '';
-  let textColor = '';
-
-  switch (timesOfDay) {
-    case 'morning':
-      textColor = 'text-black';
-      bgColor = 'bg-yellow-200';
-      break;
-    case 'day':
-      textColor = 'text-black';
-      bgColor = 'bg-yellow-300';
-      break;
-    case 'evening':
-      textColor = 'text-gray-300';
-      bgColor = 'bg-blue-900';
-      break;
-    case 'night':
-      textColor = 'text-gray-300';
-      bgColor = 'bg-gray-800';
-      break;
-    default:
-      textColor = 'text-black';
-      bgColor = 'bg-yellow-200';
-      break;
-  }
+  const [activeIndex, setActiveIndex] = useState(
+    ways.findIndex(el => el === window.location.pathname)
+  );
 
   return (
     <header
