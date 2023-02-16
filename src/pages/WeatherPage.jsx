@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useNASAInfo } from '../hooks/useNASAInfo';
-import { useWeatherInfo } from '../hooks/useWeatherInfo';
+import { useWeatherInfo, dataAndTime } from '../hooks/useWeatherInfo';
 
 import Spinner from '../components/Spinner';
 import SpinnerNASA from '../components/SpinnerNASA';
@@ -9,7 +9,7 @@ import WeatherInfo from '../components/WeatherInfo';
 import NASAInfo from '../components/NASAInfo';
 
 const WeatherPage = () => {
-  const { name, weather, sys, main, isLoading, dataAndTime, setStich } = useWeatherInfo();
+  const { name, weather, sys, main, isLoading, setStich } = useWeatherInfo();
   const { items, isLoadingNASA } = useNASAInfo();
 
   const onUpdateData = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { useWeatherInfo } from './hooks/useWeatherInfo';
+import { timesOfDay } from './hooks/useWeatherInfo';
 
 import Header from './components/Header';
 import WeatherPage from './pages/WeatherPage';
@@ -9,7 +9,6 @@ import PhotoPage from './pages/PhotoPage';
 import Background from './components/Background';
 
 const App = () => {
-  const { timesOfDay } = useWeatherInfo();
   let bgColor = '';
   let skyColor = '';
 

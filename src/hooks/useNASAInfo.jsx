@@ -25,5 +25,5 @@ export const useNASAInfo = () => {
     fetchData();
   }, []);
 
-  return { items, isLoadingNASA };
+  return { items, isLoadingNASA, error };
 };

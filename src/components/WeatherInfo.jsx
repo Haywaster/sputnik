@@ -1,10 +1,8 @@
 import React from 'react';
 
-import { useWeatherInfo } from '../hooks/useWeatherInfo';
+import { timesOfDay } from '../hooks/useWeatherInfo';
 
 const WeatherInfo = ({ name, country, temp, time, image, status, onUpdateData }) => {
-  const { timesOfDay } = useWeatherInfo();
-
   let bgColor = '';
   let textColor = '';
 

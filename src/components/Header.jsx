@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useWeatherInfo } from '../hooks/useWeatherInfo';
+import { timesOfDay } from '../hooks/useWeatherInfo';
 
 const Header = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const { timesOfDay } = useWeatherInfo();
 
   let pages = ['Погода', 'Фотогалерея'];
   let ways = ['', 'photo'];
