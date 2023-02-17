@@ -39,7 +39,7 @@ const App = () => {
     <div className={`h-[100vh] py-[3vw] px-[10vw] ${bgColor} font-bodyFont`}>
       <Header />
       <section
-        className={`relative flex justify-evenly items-center p-10 ${skyColor} h-[80vh] rounded-lg z-10`}>
+        className={`relative flex justify-evenly items-center p-[5%] ${skyColor} h-[80vh] rounded-lg z-10`}>
         <Background />
         <Routes>
           <Route path='/' element={<WeatherPage />} />

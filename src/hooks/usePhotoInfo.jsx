@@ -1,30 +1,19 @@
-import React, { useState, useEffect } from 'react';
-import axios, { AxiosError } from 'axios';
+import React from 'react';
+import { useHttp } from './useHttp';
 
 const _apiBase = 'https://api.unsplash.com';
 const _apiRandom = '/photos/random';
-const _apiKey = 'A4wVqhvmcAQOV6wcdpUw6LfPDr-PaMXZ4MRliWbN8C4';
+const _apiItems = '/search/photos?page=1&query=';
+const _apiKey = 'mgBvzOssXzntyHTErqbHJM5VZBxFg3kH68ztA0kh8Kw';
 
-export const usePhotoInfo = () => {
-  const [random, setRandom] = useState();
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
-
-  async function fetchData() {
-    try {
-      const response = await axios.get(`${_apiBase}${_apiRandom}?client_id=${_apiKey}`);
-      setRandom(response.data);
-      setIsLoading(false);
-    } catch {
-      const error = AxiosError;
-      setIsLoading(false);
-      setError(error.message);
-    }
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  return { random, isLoading, error };
+export const useRandomPhotoInfo = () => {
+  const randomInfo = useHttp(`${_apiBase}${_apiRandom}?client_id=${_apiKey}`);
+  return { randomInfo };
 };
+
+export const useCollectionPhotoInfo = img => {
+  const collectionInfo = useHttp(`${_apiBase}${_apiItems}${img}&client_id=${_apiKey}`);
+  return { collectionInfo };
+};
+
+// https://api.unsplash.com/search/photos?page=1&query=${img}&client_id=${Access_Key}

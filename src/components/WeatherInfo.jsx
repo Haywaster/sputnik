@@ -32,7 +32,7 @@ const WeatherInfo = ({ name, country, temp, time, image, status, onUpdateData })
   return (
     <div className={`${textColor} w-1/3 flex flex-col h-2/3`}>
       <div
-        className={`h-full border-4 flex items-center justify-center flex-col rounded-lg p-6 ${bgColor} hover:bg-opacity-70 ease-in-out duration-300 outline-none`}>
+        className={`h-full border-[0.3vw] flex items-center justify-center flex-col rounded-lg p-[5%] ${bgColor} hover:bg-opacity-70 ease-in-out duration-300 outline-none`}>
         <div className='text-center'>
           <div className='font-bold text-[2.5vw]'>
             {name} {country}
@@ -49,7 +49,7 @@ const WeatherInfo = ({ name, country, temp, time, image, status, onUpdateData })
       </div>
       <button
         onClick={onUpdateData}
-        className={`${bgColor} w-1/2 mx-auto h-1/4 mt-[1vw] border rounded-md hover:bg-opacity-70 ease-in-out duration-300 outline-none font-bold text-[1.5vw]`}>
+        className={`${bgColor} w-1/2 mx-auto h-1/4 mt-[1vw] border-[0.3vw] rounded-md hover:bg-opacity-70 ease-in-out duration-300 outline-none font-bold text-[1.5vw]`}>
         Обновить
       </button>
     </div>

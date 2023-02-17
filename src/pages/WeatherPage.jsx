@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { useNASAInfo } from '../hooks/useNASAInfo';
-import { useWeatherInfo, dataAndTime } from '../hooks/useWeatherInfo';
+import { useWeatherInfo } from '../hooks/useWeatherInfo';
 
 import Spinner from '../components/Spinner';
 import SpinnerNASA from '../components/SpinnerNASA';
@@ -9,29 +9,41 @@ import WeatherInfo from '../components/WeatherInfo';
 import NASAInfo from '../components/NASAInfo';
 
 const WeatherPage = () => {
-  const { name, weather, sys, main, isLoading, setStich } = useWeatherInfo();
-  const { items, isLoadingNASA } = useNASAInfo();
+  const { weatherData, dataAndTime } = useWeatherInfo();
+  const { NASAData } = useNASAInfo();
 
   const onUpdateData = () => {
-    setStich(prev => !prev);
+    weatherData.setStich(prev => !prev);
   };
 
   return (
     <>
-      {isLoading ? (
+      {weatherData.isLoading ? (
         <Spinner />
       ) : (
         <WeatherInfo
-          name={name}
-          country={sys.country}
+          name={weatherData.items.name}
+          country={weatherData.items.sys.country}
           time={dataAndTime.toLocaleString()}
-          image={`https://openweathermap.org/img/wn/${weather.map(el => el.icon)}@2x.png`}
-          temp={(main.temp - 273.15).toFixed(0) + '°C'}
-          status={weather.map(el => el.main)}
+          image={`https://openweathermap.org/img/wn/${weatherData.items.weather.map(
+            el => el.icon
+          )}@2x.png`}
+          temp={(weatherData.items.main.temp - 273.15).toFixed(0) + '°C'}
+          status={weatherData.items.weather.map(el => el.main)}
           onUpdateData={onUpdateData}
         />
       )}
-      {isLoadingNASA ? <SpinnerNASA /> : <NASAInfo items={items} />}
+      {NASAData.isLoading ? (
+        <SpinnerNASA />
+      ) : (
+        <NASAInfo
+          url={NASAData.items.url}
+          title={NASAData.items.title}
+          explanation={NASAData.items.explanation}
+        />
+      )}
+      {weatherData.error && <div>{weatherData.error}</div>}
+      {NASAData.error && <div>{NASAData.error}</div>}
     </>
   );
 };
