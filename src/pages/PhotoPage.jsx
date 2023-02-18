@@ -21,6 +21,8 @@ const PhotoPage = () => {
     ref.current.value = '';
   };
 
+  console.log(items);
+
   return (
     <div className='w-[50%] h-[90%] flex items-center justify-between flex-col'>
       {items.length === 0 ? (
