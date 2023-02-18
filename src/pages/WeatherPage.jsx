@@ -7,6 +7,7 @@ import Spinner from '../components/Spinner';
 import SpinnerNASA from '../components/SpinnerNASA';
 import WeatherInfo from '../components/WeatherInfo';
 import NASAInfo from '../components/NASAInfo';
+import ErrorMessage from '../components/ErrorMessage';
 
 const WeatherPage = () => {
   const { weatherData, dataAndTime } = useWeatherInfo();
@@ -42,8 +43,8 @@ const WeatherPage = () => {
           explanation={NASAData.items.explanation}
         />
       )}
-      {weatherData.error && <div>{weatherData.error}</div>}
-      {NASAData.error && <div>{NASAData.error}</div>}
+      {weatherData.error && <ErrorMessage error={weatherData.error} />}
+      {NASAData.error && <ErrorMessage error={NASAData.error} />}
     </>
   );
 };

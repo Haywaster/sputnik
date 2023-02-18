@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { useHttp } from './useHttp';
 
 const _apiBase = 'https://api.unsplash.com';
@@ -11,9 +12,32 @@ export const useRandomPhotoInfo = () => {
   return { randomInfo };
 };
 
-export const useCollectionPhotoInfo = img => {
-  const collectionInfo = useHttp(`${_apiBase}${_apiItems}${img}&client_id=${_apiKey}`);
-  return { collectionInfo };
+export const useCollectionPhotoInfo = () => {
+  const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState('');
+
+  async function fetchData(value) {
+    if (value) {
+      setIsLoading(true);
+      await axios
+        .get(`${_apiBase}${_apiItems}${value}&client_id=${_apiKey}`)
+        .then(response => {
+          setItems(response.data);
+          setIsLoading(false);
+        })
+        .catch(error => {
+          setError(error.message);
+          setIsLoading(false);
+        });
+    }
+  }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  return { items, isLoading, error, fetchData };
 };
 
 // https://api.unsplash.com/search/photos?page=1&query=${img}&client_id=${Access_Key}

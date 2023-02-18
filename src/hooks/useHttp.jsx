@@ -7,9 +7,9 @@ export const useHttp = url => {
   const [error, setError] = useState('');
   const [stich, setStich] = useState(false);
 
-  function fetchData() {
+  async function fetchData() {
     setIsLoading(true);
-    axios
+    await axios
       .get(url)
       .then(response => {
         setItems(response.data);
@@ -21,22 +21,22 @@ export const useHttp = url => {
       });
   }
 
-  // async function fetchData() {
-  //   try {
-  //     setIsLoading(true);
-  //     const response = await axios.get(url);
-  //     setItems(response.data);
-  //     setIsLoading(false);
-  //   } catch {
-  //     setIsLoading(false);
-  //     setError(axios.AxiosError);
-  //     console.log(AxiosError.message);
-  //   }
-  // }
-
   useEffect(() => {
     fetchData();
   }, [stich]);
 
-  return { items, isLoading, error, setStich };
+  return { items, isLoading, error, setStich, fetchData };
 };
+
+// async function fetchData() {
+//   try {
+//     setIsLoading(true);
+//     const response = await axios.get(url);
+//     setItems(response.data);
+//     setIsLoading(false);
+//   } catch {
+//     setIsLoading(false);
+//     setError(axios.AxiosError);
+//     console.log(AxiosError.message);
+//   }
+// }
