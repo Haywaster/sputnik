@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 
 export const useHttp = url => {
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
-  const [stich, setStich] = useState(false);
 
   async function fetchData() {
     setIsLoading(true);
@@ -21,9 +20,5 @@ export const useHttp = url => {
       });
   }
 
-  useEffect(() => {
-    fetchData();
-  }, [stich]);
-
-  return { items, isLoading, error, setStich, fetchData };
+  return { items, isLoading, error, fetchData };
 };

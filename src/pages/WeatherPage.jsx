@@ -10,30 +10,30 @@ import NASAInfo from '../components/NASAInfo';
 import ErrorMessage from '../components/ErrorMessage';
 
 const WeatherPage = () => {
-  const { weatherData, dataAndTime } = useWeatherInfo();
+  const { weatherData, dataAndTime, setStich } = useWeatherInfo();
   const { NASAData } = useNASAInfo();
 
   const onUpdateData = () => {
-    weatherData.setStich(prev => !prev);
+    setStich(prev => !prev);
   };
 
   return (
     <>
-      {weatherData.isLoading ? (
+      {weatherData.isLoading && !weatherData.error ? (
         <Spinner />
       ) : (
         <WeatherInfo
           name={weatherData.items.name}
           country={weatherData.items.sys.country}
           time={dataAndTime.toLocaleString()}
-          image={`https://openweathermap.org/img/wn/${weatherData.items.weather.map(
-            el => el.icon
-          )}@2x.png`}
+          image={`https://openweathermap.org/img/wn/${weatherData.items.weather[0].icon}@2x.png`}
           temp={(weatherData.items.main.temp - 273.15).toFixed(0) + '°C'}
-          status={weatherData.items.weather.map(el => el.main)}
+          status={weatherData.items.weather[0].main}
           onUpdateData={onUpdateData}
         />
       )}
+      {weatherData.error && <ErrorMessage error={weatherData.error} />}
+
       {NASAData.isLoading ? (
         <SpinnerNASA />
       ) : (
@@ -43,7 +43,6 @@ const WeatherPage = () => {
           explanation={NASAData.items.explanation}
         />
       )}
-      {weatherData.error && <ErrorMessage error={weatherData.error} />}
       {NASAData.error && <ErrorMessage error={NASAData.error} />}
     </>
   );

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 
-import { timesOfDay } from './hooks/useWeatherInfo';
+import { timesOfDay } from './hooks/getTimesOfDay';
 
 import Header from './components/Header';
 import WeatherPage from './pages/WeatherPage';

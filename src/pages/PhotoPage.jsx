@@ -8,7 +8,7 @@ import { useRandomPhotoInfo, useCollectionPhotoInfo } from '../hooks/usePhotoInf
 const PhotoPage = () => {
   const [value, setValue] = useState('');
   const { randomInfo } = useRandomPhotoInfo();
-  const { items, fetchData, isLoading, error } = useCollectionPhotoInfo();
+  const { items, isLoading, error, fetchData } = useCollectionPhotoInfo();
 
   const ref = useRef(null);
 

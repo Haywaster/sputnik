@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { timesOfDay } from '../hooks/useWeatherInfo';
+import { timesOfDay } from '../hooks/getTimesOfDay';
 
 let bgColor = '';
 let textColor = '';

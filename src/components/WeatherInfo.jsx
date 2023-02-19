@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { timesOfDay } from '../hooks/useWeatherInfo';
+import { timesOfDay } from '../hooks/getTimesOfDay';
 
 let bgColor = '';
 let textColor = '';
