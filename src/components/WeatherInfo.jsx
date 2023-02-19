@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import { timesOfDay } from '../hooks/useWeatherInfo';
 
@@ -54,6 +55,16 @@ const WeatherInfo = ({ name, country, temp, time, image, status, onUpdateData })
       </button>
     </div>
   );
+};
+
+WeatherInfo.propTypes = {
+  name: PropTypes.string,
+  country: PropTypes.string,
+  temp: PropTypes.string,
+  time: PropTypes.string,
+  image: PropTypes.string,
+  status: PropTypes.string,
+  onUpdateData: PropTypes.func
 };
 
 export default WeatherInfo;

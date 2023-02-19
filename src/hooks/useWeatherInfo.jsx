@@ -1,4 +1,3 @@
-import React from 'react';
 import { useHttp } from './useHttp';
 
 const _apiBase = 'https://api.openweathermap.org/data/2.5/';

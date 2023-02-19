@@ -1,8 +1,7 @@
 import React from 'react';
-import SpinnerNASA from './SpinnerNASA';
+import PropTypes from 'prop-types';
 
 const Gallery = ({ items }) => {
-  console.log(items);
   return (
     <div style={{ display: '-webkit-box' }} className='h-[80%] overflow-x-scroll w-[160%]'>
       {items.map(el => (
@@ -20,6 +19,10 @@ const Gallery = ({ items }) => {
       ))}
     </div>
   );
+};
+
+Gallery.propTypes = {
+  items: PropTypes.array
 };
 
 export default Gallery;

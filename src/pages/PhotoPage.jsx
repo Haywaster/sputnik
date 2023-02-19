@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import ErrorMessage from '../components/ErrorMessage';
 import Gallery from '../components/Gallery';
 
@@ -21,7 +21,15 @@ const PhotoPage = () => {
     ref.current.value = '';
   };
 
-  console.log(items);
+  useEffect(() => {
+    const keySend = e => {
+      if (e.keyCode === 13) {
+        handleSubmit();
+      }
+    };
+    document.addEventListener('keydown', keySend);
+    return () => document.removeEventListener('keydown', keySend);
+  }, [handleSubmit]);
 
   return (
     <div className='w-[50%] h-[90%] flex items-center justify-between flex-col'>

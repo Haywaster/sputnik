@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 export const useHttp = url => {
@@ -27,16 +27,3 @@ export const useHttp = url => {
 
   return { items, isLoading, error, setStich, fetchData };
 };
-
-// async function fetchData() {
-//   try {
-//     setIsLoading(true);
-//     const response = await axios.get(url);
-//     setItems(response.data);
-//     setIsLoading(false);
-//   } catch {
-//     setIsLoading(false);
-//     setError(axios.AxiosError);
-//     console.log(AxiosError.message);
-//   }
-// }

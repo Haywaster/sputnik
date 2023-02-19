@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 const NASAInfo = ({ url, title, explanation }) => {
   return (
@@ -14,6 +15,12 @@ const NASAInfo = ({ url, title, explanation }) => {
       </p>
     </div>
   );
+};
+
+NASAInfo.propTypes = {
+  url: PropTypes.string,
+  title: PropTypes.string,
+  explanation: PropTypes.string
 };
 
 export default NASAInfo;
